@@ -26,8 +26,8 @@ void setup() {
 
 	zusi = new Zusi3Schnittstelle("10.0.0.20", 1436, "ESP8266 Client");
 	zusi->setDebugOutput(true);
-	zusi->reqFstAnz(0x01); //Geschwindigkeit
-	zusi->reqFstAnz(0x65); //PZB
+	zusi->reqFstAnz(Geschwindigkeit); //0x01
+	zusi->reqFstAnz(Status_Zugbeeinflussung); //0x65
 	zusi->requestFuehrerstandsbedienung(false);
 	zusi->requestProgrammdaten(true); //Pfad, Zugnummer, etc...
 	int i = 0;

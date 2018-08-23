@@ -11,6 +11,7 @@ Vorraussetzungen:
   - Software:
     - IDE: Arduino, Visual Studio, ...
     - LinkedList von Ivan Seidel Version 1.2.3, kann im Bibliotheksverwalter heruntergeladen werden
+    - Zusi 3: Für ein optimales Erlebnis empfiehlt es sich, den Sendeabstand auf 0,100 - 0,250 sek zu stellen
   
 Erfolgreich getestet wurder der Code auf einem ESP8266, genau genommen dem NodeMCU 1.0.
 

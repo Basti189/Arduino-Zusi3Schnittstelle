@@ -15,7 +15,7 @@ Vorraussetzungen:
 Erfolgreich getestet wurder der Code auf einem ESP8266, genau genommen dem NodeMCU 1.0.
 
 Den Ordner Arduino klonen und die Arduino.ino starten. Das richtige Board auswählen, am besten zur Zeit NodeMCU 1.0 (ESP-12E).
-Standartmäißg ist in der Zusi3Schnittstelle.h das ESP8266 definiert! Bitte anpassen, oder den Code selber anpassen.
+Standartmäßig ist in der Zusi3Schnittstelle.h das ESP8266 definiert! Bitte anpassen, oder den Code selber anpassen.
 Im Sketch wird eine Verbindung zu Zusi aufgebaut, das Programm läuft nicht weiter, ehe eine Verbindung erfolgreich hergestellt wurde.
 
 ```c++

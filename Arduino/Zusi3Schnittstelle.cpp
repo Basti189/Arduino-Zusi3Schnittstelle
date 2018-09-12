@@ -12,6 +12,9 @@ Zusi3Schnittstelle::Zusi3Schnittstelle(String ip, int port, String clientName) {
 #if defined(ESP8266_Wifi) || defined(ESP32_Wifi)
 	client = new WiFiClient();
 #endif
+#ifdef ESP32_Ethernet
+	client = new WiFiClient();
+#endif
 #ifdef Ethernet_Shield
 	client = new EthernetClient();
 #endif
@@ -21,8 +24,18 @@ Zusi3Schnittstelle::Zusi3Schnittstelle(String ip, int port, String clientName) {
 }
 
 boolean Zusi3Schnittstelle::connect() {
-#if defined(ESP8266_Wifi) || defined(ESP32_Wifi)
+#ifdef ESP8266_Wifi
 	boolean state = client->connect(ip, port);
+#endif
+#ifdef ESP32_Wifi
+	char constCharIP[sizeof(ip)];
+	ip.toCharArray(constCharIP, sizeof(constCharIP));
+	boolean state = client->connect(constCharIP, port);
+#endif
+#ifdef ESP32_Ethernet
+	char constCharIP[sizeof(ip)];
+	ip.toCharArray(constCharIP, sizeof(constCharIP));
+	boolean state = client->connect(constCharIP, port);
 #endif
 #ifdef Ethernet_Shield
 	boolean state = (boolean) client->connect(ip.c_str(), port);
@@ -125,7 +138,7 @@ void Zusi3Schnittstelle::HELLO() {
 	byte *result = verbindungsaufbau->get(&length);
 	client->write(result, length);
 	delete result;
-	delete verbindungsaufbau;
+	//delete verbindungsaufbau; //Absturzgrund bei dem ESP32
 }
 
 void Zusi3Schnittstelle::ACK_HELLO() {

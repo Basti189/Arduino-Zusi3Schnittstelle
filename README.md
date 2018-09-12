@@ -12,10 +12,14 @@ Vorraussetzungen:
     - IDE: Arduino, Visual Studio, ...
     - LinkedList von Ivan Seidel Version 1.2.3, kann im Bibliotheksverwalter heruntergeladen werden
     - Zusi 3: Für ein optimales Erlebnis empfiehlt es sich, den Sendeabstand auf 0,100 - 0,250 sek zu stellen
-  
-Erfolgreich getestet wurder der Code auf einem ESP8266, genau genommen dem NodeMCU 1.0.
 
-Den Ordner Arduino klonen und die Arduino.ino starten. Das richtige Board auswählen, am besten zur Zeit NodeMCU 1.0 (ESP-12E).
+  - Erfolgreich getestete Boards/Chips:
+    - ESP8266 -> NodeMCU 1.0 (ESP12E-Module) (WiFi)
+    - ESP32   -> NodeMCU-32S (WiFi)
+    - ESP32   -> Olimex ESP32-Gateway (Ethernet)
+
+
+Den Ordner Arduino klonen und die Arduino.ino starten. Das richtige Board auswählen.
 Standartmäßig ist in der Zusi3Schnittstelle.h das ESP8266 definiert! Bitte anpassen, oder den Code selber anpassen.
 Im Sketch wird eine Verbindung zu Zusi aufgebaut, das Programm läuft nicht weiter, ehe eine Verbindung erfolgreich hergestellt wurde.
 

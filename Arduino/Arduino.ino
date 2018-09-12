@@ -11,6 +11,9 @@
 const char* ssid = "SSID";
 const char* password = "PASSWORD";
 #endif
+#ifdef ESP32_Ethernet
+//nothing
+#endif
 #ifdef Ethernet_Shield //Arduino Uno hat zu wenig RAM für Datenpakete
 byte *mac = new byte[6]{ 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 };
 #endif
@@ -18,7 +21,6 @@ byte *mac = new byte[6]{ 0x01, 0x02, 0x03, 0x04, 0x05, 0x06 };
 const char* ssid = "SSID";
 const char* password = "PASSWORD";
 #endif
-
 
 Zusi3Schnittstelle *zusi;
 
@@ -47,6 +49,10 @@ void setup() {
 	Serial.println("\nVerbunden");
 	Serial.print("IP-Adresse: ");
 	Serial.println(WiFi.localIP());
+#endif
+
+#ifdef ESP32_Ethernet
+	ETH.begin();
 #endif
 
 #ifdef Ethernet_Shield

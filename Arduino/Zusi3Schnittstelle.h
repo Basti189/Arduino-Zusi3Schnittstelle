@@ -12,8 +12,9 @@
 #error Bitte lade im Bibliotheksverwalter <LinkedList by Ivan Seidel> in der Version 1.2.3 herunter
 #endif
 
-#define ESP8266_Wifi //Getestet mit NodeMCU 1.0
-//#define ESP32_Wifi //Läuft aktuell nicht auf dem ESP32
+#define ESP8266_Wifi //NodeMCU 1.0 - Funktioniert
+//#define ESP32_Wifi //NodeMCU-32S - Funktioniert
+//#define ESP32_Ethernet //Olimex ESP32-Gateway - Funktioniert
 //#define Ethernet_Shield //Arduino UNO hat zu wenig RAM, somit nicht getestet
 //#define AVR_Wifi // Nicht getestet
 
@@ -22,6 +23,9 @@
 #endif
 #ifdef ESP32_Wifi
 #include <WiFi.h>
+#endif
+#ifdef ESP32_Ethernet
+#include <ETH.h>
 #endif
 #ifdef Ethernet_Shield
 #include <SPI.h>
@@ -61,6 +65,9 @@ private:
 	byte *ENDE = new byte[4]{ 0xFF, 0xFF, 0xFF, 0xFF };
 
 #if defined(ESP8266_Wifi) || defined(ESP32_Wifi)
+	WiFiClient *client;
+#endif
+#ifdef ESP32_Ethernet
 	WiFiClient *client;
 #endif
 #ifdef Ethernet_Shield

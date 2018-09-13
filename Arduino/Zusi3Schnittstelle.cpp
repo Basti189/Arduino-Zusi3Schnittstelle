@@ -187,7 +187,7 @@ void Zusi3Schnittstelle::NEEDED_DATA() {
 		}
 		if (reqProgrammdaten) {
 			Node *untergruppe_Programmdaten = new Node(0x0C);
-			for (int i = 1; i <= 3; i++) {
+			for (int i = 1; i <= 4; i++) {
 				Attribute *attribute = new Attribute(1, i);
 				untergruppe_Programmdaten->addAttribute(attribute);
 			}
@@ -243,7 +243,7 @@ Node *Zusi3Schnittstelle::getNodes(byte *rootID) {
 		else {
 			byte *ID = new byte[2];
 			client->read(ID, 2);
-			int length = header[0];
+			int length = ((header[0] & 0xFF) | (header[1] & 0xFF) << 8 | (header[2] & 0xFF) << 16 | (header[3] & 0xFF) << 24);
 			if (length - 2 > 0) {
 				byte *DATA = new byte[length - 2];
 				client->read(DATA, length - 2);

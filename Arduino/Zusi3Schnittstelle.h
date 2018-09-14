@@ -47,6 +47,7 @@ public:
 	void reqFstAnz(int request);
 	void requestFuehrerstandsbedienung(boolean value);
 	void requestProgrammdaten(boolean value);
+	void requestProgrammdatenOhneFahrplan(boolean value);
 	void setDebugOutput(boolean output);
 	String getZusiVersion();
 	String getVersion;
@@ -79,6 +80,7 @@ private:
 	LinkedList<int> *requestListFuehrerstandsanzeigen = new LinkedList<int>();
 	boolean reqFuehrerstandsbedienung = false;
 	boolean reqProgrammdaten = false;
+	boolean reqProgrammdatenOhneFahrplan = false;
 
 	Node *node = NULL;
 

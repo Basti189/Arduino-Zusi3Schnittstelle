@@ -83,4 +83,4 @@ Zur Auswahl stehen hier folgende Datentype:
   
   Die Methoden und Klassen sind übereinstimmend mit der Java Schnittstelle, da ich diese auf C++ portiert habe und angepasst habe. Somit ist die in Java geschriebene Schnittstelle (Noch nicht veröffentlicht) genau so zu benutzen, bis auf einen kleinen Unterschied.
 
-## Java - not released yet
+## Java - released im eigenen repository
